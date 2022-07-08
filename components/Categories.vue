@@ -11,12 +11,12 @@
 <script>
 export default {
    async asyncData({ $content, params }) {
-      const catgories = await $content('categories')
+      const categories = await $content('categories')
         .only(['name', 'slug'])
         .sortBy('createdAt', 'asc')
         .fetch()
       return {
-        catgories
+        categories
       }
 }
 
