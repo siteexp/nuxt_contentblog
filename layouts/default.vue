@@ -10,6 +10,9 @@
    <div class="menuright">
      <RightMenu />
    </div>
+    <div class=footer>
+    <Footer />
+    </div>
   </div>
  </v-app>
 </template>
@@ -31,6 +34,10 @@ height: 60px;
 .menuright {
  float: left;
  width:20%;
+}
+
+.footer {
+height: 60px;
 }
 
 </style>
