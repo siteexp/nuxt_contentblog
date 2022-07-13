@@ -1,26 +1,39 @@
 <template>
- <div>
-  <v-chip
-    v-for="tag of tags"
-    :key="tag.slug"
-  >
-    {{ tag.name }}
-  </v-chip>
-  {{ tags }}
-</div>
+  <div>
+    <p v-if="$fetchState.pending">Loading....</p>
+    <p v-else-if="$fetchState.error">Error while fetching mountains</p>
+    <div v-else>
+      <v-chip 
+        v-for="(mountain, index) in mountains" 
+        :key="index" 
+      >
+        <NuxtLink 
+         :to="`/blog/tag/${mountain.slug}`" class=""
+        > 
+         {{ mountain.name }}
+        </NuxtLink>
+      </v-chip>
+    </div>
+  </div>
 </template>
 <script>
-export default {
-   async asyncData({ $content, params }) {
-      const tags = await $content('tags')
-        .only(['name', 'slug'])
-        .sortBy('createdAt', 'asc')
-        .fetch()
+  export default {
+    data() {
       return {
-        tags
+        mountains: []
       }
-}
-
-}
-
+    },
+    async fetch() {
+      this.mountains = await fetch(
+        'https://www.gfgm.net/_content/tags'
+      ).then(res => res.json())
+    }
+  }
 </script>
+
+<style scoped>
+a {
+ text-decoration: none;
+ color: white;
+}
+</style>

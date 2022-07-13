@@ -8,15 +8,13 @@
     <Nuxt />
    </div>
    <div class="menuright">
-    <RightMenu />
+     <RightMenu />
    </div>
   </div>
  </v-app>
 </template>
 
 <script>
-export default {
-}
 </script>
 
 <style scoped>

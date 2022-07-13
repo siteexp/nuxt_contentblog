@@ -37,7 +37,7 @@ export default {
       .where({ slug: { $contains: params.category } })
       .limit(1)
       .fetch()
-    const tag = tags.length > 0 ? tags[0] : {}
+    const category = categories.length > 0 ? categories[0] : {}
     const articles = await $content('blog')
       .where({ categories: { $contains: category.name } })
       .sortBy('createdAt', 'asc')

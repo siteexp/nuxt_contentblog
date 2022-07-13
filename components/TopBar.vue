@@ -17,10 +17,10 @@
          <v-divider vertical></v-divider>
          <v-btn
           color="white"
-          href="/News"
+          href="/Archive"
           text
          >
-          News
+          Archive
          </v-btn>
          <v-divider vertical></v-divider>
          <v-btn
